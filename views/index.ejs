@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Color Interpolation</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var color1Input = document.getElementById('color1');
+            var color2Input = document.getElementById('color2');
+            var resultDiv = document.getElementById('result');
+
+            function interpolateColors() {
+                var color1 = color1Input.value;
+                var color2 = color2Input.value;
+
+                var postData = {
+                    color1: color1,
+                    color2: color2
+                };
+
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', '/interpolate');
+                xhr.setRequestHeader('Content-Type', 'application/json');
+                xhr.onload = function() {
+                    if (xhr.status === 200) {
+                        var response = JSON.parse(xhr.responseText);
+                        resultDiv.textContent = response.color;
+                        resultDiv.style.backgroundColor = response.color;
+                    }
+                };
+                xhr.send(JSON.stringify(postData));
+            }
+
+            color1Input.addEventListener('change', interpolateColors);
+            color2Input.addEventListener('change', interpolateColors);
+        });
+    </script>
+</head>
+<body>
+    <span class="top">Intermediate Color</span>
+    <span class="bottom">Intermediate Color</span>
+    <div class="content-wrap">
+        <!--<h1>Color Interpolation</h1>-->
+        <form>
+            <input type="color" id="color1" name="color1" required>
+            <input type="color" id="color2" name="color2" required>
+            <div id="result"></div>
+        </form>
+    </div>
+</body>
+</html>

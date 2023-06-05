@@ -1,0 +1,101 @@
+/* reset ================================ */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+  font-family: 'Hiragino Sans', sans-serif;
+  line-height: 1.7;
+  letter-spacing: 1px;
+  /*IE(Internet Explorer)・Microsoft Edgeへの対応*/
+  -ms-overflow-style: none;
+  /*Firefoxへの対応*/
+  scrollbar-width: none;
+  overflow: hidden;
+  font-family: 'Roboto', sans-serif;
+}
+/*Google Chrome、Safariへの対応*/
+html::-webkit-scrollbar{
+  display: none;
+}
+
+body {
+  margin: 0;
+  background-color: #f6faff;
+  color: #6c7686;
+}
+
+ul, li {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  display: block;
+  text-decoration: none;
+  color: #2d3133;
+  font-size: 14px;
+}
+
+a:hover {
+  transition: all 0.3s ease;
+}
+
+
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+}
+
+h1 {
+  font-weight: 600;
+}
+  
+/* else ================================ */
+span{
+  position: absolute;
+  font-size: calc(24px + 5vw);
+  z-index: 100;
+}
+span.top{
+  top: 40px;
+  left: 46px;
+  color: black;
+}
+span.bottom{
+  right: 46px;
+  bottom: 40px;
+  color: white;
+}
+.content-wrap{
+  position: relative;
+  width: calc(100vw);
+  height: calc(100vh);
+}
+form{display: flex;}
+input[type="color"]{
+  cursor: pointer;
+  width: 33.333vw;
+  height: 100vh;
+  background: none;
+  padding: 16px 20px;
+  margin: 0;
+  border: none;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+div#result{
+  order: 2;
+  width: 33.333vw;
+  height: calc(100vh - 40px);
+  margin: 20px 0;
+  font-size: calc(18px + 2.2vw);
+  text-align: center;
+  line-height: 100vh;
+  transition: all 1s;
+}
+#color2{
+  order:3;
+}
